@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10152b">
+  <title>Gallery | Hello, World!</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; padding: 100px 20px 50px; color: #f7f8ff; background: #10152b; background-image: radial-gradient(ellipse at 18% 15%, #533b9b88 0, transparent 38%), radial-gradient(ellipse at 85% 84%, #0869e866 0, transparent 38%); }
+    body::before { content: ""; position: fixed; inset: 0; opacity: .15; pointer-events: none; background-image: linear-gradient(#ffffff12 1px, transparent 1px), linear-gradient(90deg, #ffffff12 1px, transparent 1px); background-size: 52px 52px; mask-image: linear-gradient(to bottom, black, transparent 90%); }
+    nav { position: absolute; top: 24px; left: 50%; z-index: 2; display: flex; gap: 8px; transform: translateX(-50%); }
+    nav a { padding: 10px 16px; border: 1px solid #ffffff1c; border-radius: 999px; color: #e5e7f4; font-size: 14px; text-decoration: none; background: #ffffff09; transition: background .2s, border-color .2s; }
+    nav a:hover, nav a[aria-current="page"] { border-color: #ffffff45; background: #ffffff19; }
+    main { position: relative; width: min(1060px, 100%); margin: 0 auto; animation: arrive .8s cubic-bezier(.2,.8,.2,1) both; }
+    .eyebrow { margin: 0 0 14px; color: #b5a7ff; font-size: 12px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(42px, 8vw, 68px); line-height: 1.05; letter-spacing: -.06em; }
+    h1 span { color: transparent; background: linear-gradient(100deg, #b5a7ff 12%, #72d7ff 90%); background-clip: text; }
+    .intro { max-width: 600px; margin: 18px 0 34px; color: #c2c6db; font-size: 17px; line-height: 1.7; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    figure { overflow: hidden; margin: 0; border: 1px solid #ffffff20; border-radius: 20px; background: #ffffff09; box-shadow: 0 18px 48px #05071444; transition: transform .25s, border-color .25s; }
+    figure:hover { transform: translateY(-5px); border-color: #ffffff45; }
+    .art { display: grid; place-items: center; aspect-ratio: 1.35; overflow: hidden; font-size: clamp(42px, 7vw, 70px); }
+    .art span { display: grid; place-items: center; width: 112px; height: 112px; border: 1px solid #ffffff4a; border-radius: 32px; background: #ffffff1b; box-shadow: 0 15px 50px #14142e55, inset 0 1px #ffffff55; backdrop-filter: blur(8px); transform: rotate(-8deg); transition: transform .3s; }
+    figure:hover .art span { transform: rotate(0) scale(1.06); }
+    .one { background: radial-gradient(circle at 30% 25%, #d9a7ff, transparent 30%), linear-gradient(135deg, #5639ac, #182d65 70%); }
+    .two { background: radial-gradient(circle at 72% 25%, #9bf1ff, transparent 27%), linear-gradient(140deg, #176c91, #1b2258 70%); }
+    .three { background: radial-gradient(circle at 34% 68%, #ffc785, transparent 29%), linear-gradient(135deg, #9c4a6f, #332457 74%); }
+    .four { background: radial-gradient(circle at 68% 36%, #94ffc8, transparent 27%), linear-gradient(135deg, #237967, #182d65 75%); }
+    .five { background: radial-gradient(circle at 30% 35%, #ff9dac, transparent 29%), linear-gradient(135deg, #8f436b, #26235e 75%); }
+    .six { background: radial-gradient(circle at 68% 68%, #ffe287, transparent 29%), linear-gradient(135deg, #936b27, #29356e 75%); }
+    figcaption { padding: 17px 19px 19px; }
+    figcaption strong { display: block; margin-bottom: 5px; font-size: 16px; }
+    figcaption span { color: #aeb4ce; font-size: 13px; }
+    @keyframes arrive { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 760px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } nav { top: 16px; width: calc(100% - 32px); justify-content: center; } nav a { padding: 9px 12px; font-size: 13px; } }
+    @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } .art { aspect-ratio: 1.6; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <nav aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="gallery.html" aria-current="page">Gallery</a>
+  </nav>
+  <main>
+    <p class="eyebrow">A few bright ideas</p>
+    <h1>Little things, <span>beautifully made.</span></h1>
+    <p class="intro">A small collection of colorful moments and creative sparks. Each piece is made with simple shapes, bold color, and a little imagination.</p>
+    <section class="grid" aria-label="Gallery collection">
+      <figure><div class="art one" role="img" aria-label="Purple glowing star artwork"><span>✦</span></div><figcaption><strong>First Light</strong><span>A bright beginning</span></figcaption></figure>
+      <figure><div class="art two" role="img" aria-label="Blue abstract artwork"><span>✧</span></div><figcaption><strong>Open Skies</strong><span>Room to explore</span></figcaption></figure>
+      <figure><div class="art three" role="img" aria-label="Warm sunset abstract artwork"><span>☼</span></div><figcaption><strong>Golden Hour</strong><span>A softer kind of glow</span></figcaption></figure>
+      <figure><div class="art four" role="img" aria-label="Green abstract artwork"><span>❋</span></div><figcaption><strong>New Growth</strong><span>Ideas taking shape</span></figcaption></figure>
+      <figure><div class="art five" role="img" aria-label="Pink abstract artwork"><span>♡</span></div><figcaption><strong>Kindred</strong><span>Made to be shared</span></figcaption></figure>
+      <figure><div class="art six" role="img" aria-label="Golden abstract artwork"><span>◈</span></div><figcaption><strong>Good Things</strong><span>Worth another look</span></figcaption></figure>
+    </section>
+  </main>
+</body>
+</html>
