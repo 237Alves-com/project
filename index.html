@@ -14,6 +14,9 @@
       background-image: radial-gradient(ellipse at 18% 15%, #533b9b88 0, transparent 38%), radial-gradient(ellipse at 85% 84%, #0869e866 0, transparent 38%);
     }
     body::before { content: ""; position: fixed; inset: 0; opacity: .15; pointer-events: none; background-image: linear-gradient(#ffffff12 1px, transparent 1px), linear-gradient(90deg, #ffffff12 1px, transparent 1px); background-size: 52px 52px; mask-image: linear-gradient(to bottom, black, transparent 90%); }
+    nav { position: absolute; top: 24px; left: 50%; z-index: 2; display: flex; gap: 8px; transform: translateX(-50%); }
+    nav a { padding: 10px 16px; border: 1px solid #ffffff1c; border-radius: 999px; color: #e5e7f4; font-size: 14px; text-decoration: none; background: #ffffff09; transition: background .2s, border-color .2s; }
+    nav a:hover, nav a[aria-current="page"] { border-color: #ffffff45; background: #ffffff19; }
     main { position: relative; width: min(640px, calc(100% - 36px)); padding: clamp(36px, 8vw, 72px); text-align: center; border: 1px solid #ffffff20; border-radius: 28px; background: linear-gradient(145deg, #ffffff12, #ffffff06); box-shadow: 0 30px 100px #05071477, inset 0 1px #ffffff1b; backdrop-filter: blur(18px); animation: arrive .8s cubic-bezier(.2,.8,.2,1) both; }
     .spark { display: grid; place-items: center; width: 66px; height: 66px; margin: 0 auto 28px; border-radius: 20px; color: #fff; font-size: 30px; background: linear-gradient(135deg, #8c6bff, #3d9cff); box-shadow: 0 12px 35px #735cff66; }
     .eyebrow { margin: 0 0 14px; color: #b5a7ff; font-size: 12px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
@@ -24,9 +27,15 @@
     .status i { width: 8px; height: 8px; border-radius: 50%; background: #67e8b1; box-shadow: 0 0 12px #67e8b1; }
     @keyframes arrive { from { opacity: 0; transform: translateY(18px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }
+    @media (max-width: 520px) { nav { top: 16px; width: calc(100% - 32px); justify-content: center; } nav a { padding: 9px 12px; font-size: 13px; } main { margin-top: 50px; } }
   </style>
 </head>
 <body>
+  <nav aria-label="Main navigation">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
   <main>
     <div class="spark" aria-hidden="true">✦</div>
     <p class="eyebrow">A little something to start</p>
